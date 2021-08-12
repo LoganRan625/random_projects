@@ -1,0 +1,68 @@
+#!/bin/python3
+
+import sys
+import argparse
+
+# input to file
+input_data = []
+input_data = sys.stdin.read()
+#
+
+#################
+### FUNCTIONS ###
+
+def P_(text):
+	sys.stdout.write(text)
+
+def E_(text):
+	sys.stderr.write(text)
+	sys.stderr.flush()
+
+def letters_():
+	arr_letters = []
+	data = input_data
+	for letter in data:
+		if letter != "\n":
+			arr_letters.append(letter)
+	return arr_letters
+
+def words_():
+	data = input_data
+	data = data.split()
+	return data
+
+def count_(func):
+	data = func
+	iter = 0
+	for i in data:
+		if i != " ":
+			iter += 1
+	return iter
+
+## condences function calls
+numletters = count_(letters_())
+numwords = count_(words_())
+
+
+# parsing arguments
+parser = argparse.ArgumentParser(description='COUNT: counts input based on arguemnts')
+parser.add_argument('-c', type=str, help='counts piped input based on "words" or "letters"')
+# parse
+args = parser.parse_args()
+
+
+def arguments(count_):
+	if count_ == "letters":
+		print(numletters)
+	elif count_ == "words":
+		print(numwords)
+	else:
+		E_("Error: in arguements(), issue with parsing args")
+
+################## end FUNCTIONS
+
+### MAIN ###
+arguments(args.c)
+
+
+
