@@ -11,8 +11,7 @@ import time
  # TYPE: Python
  # DATE: 08/12/21
  # purpose:  might possibly be able to brutefoce a website requiring username and password
- #           might be issues with timeout for each request, mostlikely would work best on
- #           simple home servers with simple sites and not much secutiry.
+ #           probably will have issues without delay for each request.
  #
  # requirements: large password and username list files.
  # NOTES: never tested code on a server, may not work at all just a quick sketch up of an idea
@@ -27,7 +26,7 @@ positive_request = "<Response [200]>" # if password and username match you will 
 pass_file = "" # name of text file with list of passwords
 user_file = "" # name of text file with list of usernames
 
-SET_LIMIT = 2000000  # set a limit of how many requests can be made
+SET_LIMIT = 20000 # set a limit of how many requests can be made
 passwords = [] # list of all passwords from file
 usernames = [] # list of all usernames from file
 info_list = [pass_file, user_file] # simplifies the FILE_DATA() function: uses one isntead of seperate
@@ -57,7 +56,7 @@ def REQUEST(): # ask website to login with specific credentials
 			exit()
 		r = requests.get(webpage, auth=(str(username[count_]), str(password[count_])))
 		# time.sleep(0.1) # could have issues with sending and receiving to quickly
-		# if timeout per request scripts is useless on that server.
+		# if delay per request doesnt help, scripts is probably useless on that server.
 
 		if r != positive_request: # 200 is possitive everything else is an error
 			count_ += 1
