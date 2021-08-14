@@ -56,7 +56,6 @@ def REQUEST(): # ask website to login with specific credentials
 			exit()
 		r = requests.get(webpage, auth=(str(username[count_]), str(password[count_])))
 		# time.sleep(0.1) # could have issues with sending and receiving to quickly
-		# if delay per request doesnt help, scripts is probably useless on that server.
 
 		if r != positive_request: # 200 is possitive everything else is an error
 			count_ += 1
