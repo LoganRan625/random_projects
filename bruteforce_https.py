@@ -44,7 +44,7 @@ def FILE_DATA(): # converts files with passwords or username for each line into 
 						usernames.append(line)	# usernames list
 				print(f"[{FILE_DATA.__name__}] password list stored")
 	except:
-		print(f"[{FILE_DATA.__name__}] Error: could not find password file")
+		print(f"[{FILE_DATA.__name__}] Error: could not find password and/or username file")
 
 
 def REQUEST(): # ask website to login with specific credentials
