@@ -250,11 +250,11 @@ main_menu () {
       start_up
       LOCK
 # 8
-    elif [ $choice == 8 ]
+    elif [ $choice -eq 8 ]
     then
       ./MainMenu.sh
 #9
-    elif [ $choice == 9 ]
+    elif [ $choice -eq 9 ]
     then
       find . -name "*.csv" -type f -delete
       find . -name "*.netxml" -type f -delete
