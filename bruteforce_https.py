@@ -62,10 +62,9 @@ def REQUEST(): # ask website to login with specific credentials
 			count_ += 1
 			if count_ >= SET_LIMIT:
 				print(f"[{REQUEST.__name__}] Limit Reached {SET_LIMIT}")
+				exit()
 			REQUEST()
-		else:
-			print(f"[{REQUEST.__name__}] Error: count exceeds SET_LIMIT {SET_LIMIT}")
-			exit()
+
 	except:
 		print(f"[{REQUEST.__name__}] Error: try: in  'r = request.get()'")
 
