@@ -11,7 +11,8 @@ import time
  # TYPE: Python
  # DATE: 08/12/21
  # purpose:  might possibly be able to brutefoce a website requiring username and password
- #           probably will have issues without delay for each request.
+ #           probably will have issues with no delay between requests, and a whole host of 
+ #           other problems.
  #
  # requirements: large password and username list files.
  # NOTES: never tested code on a server, may not work at all just a quick sketch up of an idea
