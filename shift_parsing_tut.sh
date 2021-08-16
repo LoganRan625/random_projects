@@ -34,7 +34,7 @@ while [ $# -gt 0 ]; do
 			if [ $# -lt 1 ]; then
 				echo "error: -m must be followed by a maxval"
 			else
-				max=$a1
+				max=item
 				shift
 			fi
 			;;
