@@ -24,7 +24,7 @@ a1=$1
 
 ### parser combine case and while
 while [ $# -gt 0 ]; do
-	item=$a1
+	item=$1
 	shift
 	case $item in
 		-v)
@@ -34,7 +34,7 @@ while [ $# -gt 0 ]; do
 			if [ $# -lt 1 ]; then
 				echo "error: -m must be followed by a maxval"
 			else
-				max=item
+				max=$1
 				shift
 			fi
 			;;
