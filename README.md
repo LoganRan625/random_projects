@@ -4,13 +4,13 @@
 these projects range from testing ideas and simple tutorials with little changes to
 med scale projects in...
 
-    **Assembly**
+   **Assembly**
 
-    **Python**
+   **Python**
 
-    **Java**
+   **Java**
 
-    **Bash**
+   **Bash**
 
 
 Most of the projects functionality is minimal and were made to better understand the language, syntax, libararies, and programming concepts
