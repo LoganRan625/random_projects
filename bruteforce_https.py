@@ -43,7 +43,7 @@ def FILE_DATA(): # converts files with passwords or username for each line into 
 						passwords.append(line)  # passwords list
 					else:
 						usernames.append(line)	# usernames list
-				print(f"[{FILE_DATA.__name__}] password list stored")
+		print(f"[{FILE_DATA.__name__}] password list stored")
 	except:
 		print(f"[{FILE_DATA.__name__}] Error: could not find password and/or username file")
 
