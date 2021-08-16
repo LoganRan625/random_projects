@@ -1,7 +1,7 @@
 # random_projects
 
 **Random Projects and Tutorials**
-these projects range from testing ideas and copying simple tutorials with little changes to
+these projects range from testing ideas and simple tutorials with little changes to
 med scale projects in...
 **Assembly**
 **Python**
