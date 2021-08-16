@@ -53,7 +53,7 @@ mainmenu () {
     printf "|       -------------------------------------------------------------------------------------------------       |\n"
     printf "|                                                                                                               |\n"
     printf "|                                                                                                               |\n"
-    printf "|         20. list open ports     30. Stored Aliases   40. Pi user info  50. running processes                  |\n"
+    printf "|         20. list open ports     30. Stored Aliases   40. Pi user info                                         |\n"
     printf "|                                                                                                               |\n"
     printf "|         60. Wifi Passwords                                                                                    |\n"
     printf "|                                                                                                               |\n"
@@ -78,6 +78,7 @@ mainmenu () {
 
     elif [ $choice == 3 ]
     then
+    ps | less
     htop
     read ending
 
@@ -137,17 +138,12 @@ mainmenu () {
 
     elif [ $choice == 30 ]
     then
-    echo issues with this process
+    alias | less
     read ending
 
     elif [ $choice == 40 ]
     then
     finger pi
-    read ending
-
-    elif [ $choice == 50 ]
-    then
-    ps
     read ending
 
     elif [ $choice == 60 ]
