@@ -60,35 +60,41 @@ monitor_mode () {
 
 # Ask FOR WIFI CARD
 wificard () {
+
   checkwifi=$(ifconfig) ; printf "${green} $checkwifi ${none}\n"
-  printf "${black_red} TEST COLOR BLACK RED ${none}\n"
   printf "${y} What is your WIRELESS CARDs name? ${none}\n"
   read WFcard
+  
 }
 
 # TURN ON MONITOR MODE  (name WIFI CARD)
 
 TURN_ON () {
+
   wificard
   turnon=$(airmon-ng start $WFcard ; iwconfig) ; printf "${green} $turnon ${none}\n"
   sleep 0.3
   printf "${y}     ---------------________ TURNED ON _________----------------${none}\n"
   sleep 0.3
   printf "${y}     ___________________________________________________________${none}\n"
+  
 }
 
 # TURN OFF MONTITOR MODE (rename WIFI CARD)
 
 TURN_OFF () {
+
   wificard
   turnoff=$(airmon-ng stop $WFcard ; iwconfig) ; printf "${green} $turnoff ${none}\n"
   printf "${y}     ---------------________ TURNED OFF ________----------------${none}\n"
   printf "${y}     ___________________________________________________________${none}\n"
+  
 }
 
 # SCANING
 
 Scan () {
+
 printf "${y}       ------------------------ PERFORMING ARP-SCAN --------------------${none}\n"
 printf "${y}      |                                                                 |${none}\n"
 does=$(arp-scan -l)
@@ -98,9 +104,11 @@ printf "${y}      |                                                             
 printf "${y}       -----------------------------------------------------------------${none}\n"
 read ending
 clear
+
 }
 
 Scan_networks () {
+
 printf "${y}       --------------- PERFORMING A SCAN OF LOCAL NETWORKS -------------${none}\n"
 printf "${y}      |                                                                 |${none}\n"
 wificard
@@ -111,11 +119,13 @@ printf "${y}      |                                                             
 printf "${y}       --------------------------------------------------------------------------------------${none}\n"
 read ending
 clear
+
 }
 
 # DEAUTH
 
 DEAUTHSINGLE () {
+
 printf "${y}       ---------------- PERFORMING DEAUTH SINGLE DEVICE ---------------${none}\n"
 printf "${y}      |                                                                 |${none}\n"
 printf "${y}      |  for this attack to work you must have locked a channel         |${none}\n"
@@ -146,12 +156,14 @@ printf "${y}      |                                                             
 printf "${y}       -----------------------------------------------------------------${none}\n"
 read ending
 clear
+
 }
 
 
 #LOCK CHANNEL
 
 LOCK () {
+
   printf "${y}       -------------------- PERFORMING CHANNEL LOCK --------------------${none}\n"
   printf "${y}      |                                                                 |${none}\n"
   printf "${y}      |  this will lock a ACCESS POINT TO A CHANNEL and GRAB PACKETS    |${none}\n"
@@ -179,11 +191,13 @@ LOCK () {
   printf "${y} ----------------------------------------------------------------${none}\n"
   read ending
 clear
+
 }
 
 # MAIN MENU
 
 main_menu () {
+
   start_up
   x=1
   while [ $x != 0 ]
@@ -266,12 +280,15 @@ main_menu () {
       clear
     fi
   done
+  
 }
 
 
 start_up () {
+
 clear
 starting
+
 }
 
 
