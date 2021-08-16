@@ -1,4 +1,3 @@
-# random_projects
 
 **Random Projects and Tutorials**
 
