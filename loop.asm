@@ -1,3 +1,5 @@
+; trying to create a loop in assembly, may not be the fastest way, but its the first try.
+
 section .data
 	stopping db "loop done",10
         hello db "hello",10
