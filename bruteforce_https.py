@@ -60,7 +60,7 @@ def REQUEST(): # ask website to login with specific credentials
 
 		if r != positive_request: # 200 is possitive everything else is an error
 			count_ += 1
-			if count_ >= SET_LIMIT:
+			if count_ <= SET_LIMIT:
 				print(f"[{REQUEST.__name__}] Limit Reached {SET_LIMIT}")
 				exit()
 			REQUEST()
