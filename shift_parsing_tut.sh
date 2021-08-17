@@ -68,7 +68,7 @@ while getopts ":a:b:" options; do
 done
 
 echo "option A=$ap and option B=$bo"
-## DOESNT WORK unsure why
+## DOESNT WORK the parser above has already shifted thru all the args
 
 #########################################
 
