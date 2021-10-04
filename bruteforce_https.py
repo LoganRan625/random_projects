@@ -49,8 +49,8 @@ def FILE_DATA(): # converts files lines into python lists
 
 
 def REQUEST(): # ask website to login with specific credentials
+	count_ = 0 # counts iterations
 	while True:
-		count_ = 0 # counts iterations
 		try: # trys request to connect using username[count_] and password[count-] 
 			r = requests.get(webpage)
 			
